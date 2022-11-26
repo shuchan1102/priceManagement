@@ -15,7 +15,7 @@ AMAZON_URL = "https://www.amazon.co.jp/?&tag=hydraamazonav-22&ref=pd_sl_7ibq2d37
 MERCARI_URL = "https://jp.mercari.com/"
 PAYPAY_URL = "https://paypayfleamarket.yahoo.co.jp/"
 
-#これはチェックアウトしたやつです
+#これはチェックアウトしたやつです2222
 
 
 def getAllEcPrice(product_Names):
