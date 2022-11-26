@@ -1,5 +1,6 @@
 import getAllPrice
 import sys
+import math
 
 #CSVファイルから対象商品名を読み込み
 #ECサイトの相場を取得
@@ -46,6 +47,7 @@ allAuctionPrice = getAllPrice.getAllAuctionPrice(product_Names)
 second = ""
 third =""
 fourth =""
+profitPer = []
 with open(filePath, 'w') as f:
     editKey = ""
     for product_Name in product_Names:
@@ -53,11 +55,19 @@ with open(filePath, 'w') as f:
         second = second + "," + str(allEcPrice[0][editKey])
         third = third + "," + str(allAuctionPrice[0][editKey])
         fourth = fourth + "," + str(allAuctionPrice[1][editKey])
-
+        per = (int(allAuctionPrice[0][editKey])+int(allAuctionPrice[1][editKey])) / 2 / int(allEcPrice[0][editKey])
+        profitPer.append(per)
         
     f.write("サイト名"+first+"\n")
     f.write("amazon"+second+"\n")
     f.write("メルカリ"+third+"\n")
     f.write("paypay"+fourth+"\n")
+    f.write("利益還元率")
+
+    for per in profitPer:
+        ediper = math.floor(per * 100)-100
+        f.write(","+str(ediper)+"%")
+    
+        
                     
 
